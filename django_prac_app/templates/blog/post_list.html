@@ -8,6 +8,20 @@
     <title>django_prac</title>
 </head>
 <body>
-    <div>hi</div>
+    <div>
+        <h1><a href="#">Django Practice</a></h1>
+    </div>
+    {% for post in posts%}
+    <div>
+        <p>published: {{post.published_date}}</p>
+        <h2><a href="#">{{post.title}}</a></h2>
+        <p>{{post.text}}</p>
+    </div>
+    {% endfor %}
+    <div>
+        <p>published: 29.05.2017, 12:14</p>
+        <h2><a href="#">my second post</a></h2>
+        <p>Aenean eu leo quam.</p>
+    </div>
 </body>
 </html>
