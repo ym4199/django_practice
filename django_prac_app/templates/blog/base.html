@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>django_prac</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--<a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">-->
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1><a href="#">Django Practice</a></h1>
+        <h4>{{title}}</h4>
+    </div>
+    {% block content %}
+    {% endblock %}
+
+</div>
+</body>
+</html>
