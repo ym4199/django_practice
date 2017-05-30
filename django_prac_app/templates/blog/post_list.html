@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,22 +7,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>django_prac</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--<a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">-->
 </head>
 <body>
-    <div>
+<div class="container">
+    <div class="header">
         <h1><a href="#">Django Practice</a></h1>
+        <h4>{{title}}</h4>
     </div>
+
+    <div class="post-list">
     {% for post in posts%}
-    <div>
-        <p>published: {{post.published_date}}</p>
-        <h2><a href="#">{{post.title}}</a></h2>
+    <div class="post">
+        <h3><a href="#">{{post.title}}</a></h3>
+        <p class=text-right"><small>published: {{post.published_date}}</small></p>
         <p>{{post.text}}</p>
     </div>
     {% endfor %}
-    <div>
-        <p>published: 29.05.2017, 12:14</p>
-        <h2><a href="#">my second post</a></h2>
-        <p>Aenean eu leo quam.</p>
     </div>
+</div>
 </body>
 </html>

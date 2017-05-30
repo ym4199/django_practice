@@ -5,7 +5,7 @@ from .models import Post
 # Create your views here.
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now())
+    posts = Post.objects.filter()
     context = {
         'title':'PostList from post_list view',
         'posts':posts,
