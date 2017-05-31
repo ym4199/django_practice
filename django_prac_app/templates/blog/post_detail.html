@@ -6,6 +6,8 @@
         <p class="text-right"><small>published: {{post.published_date}}</small></p>
         <p>{{post.text}}</p>
     </div>
+    <a href="{% url 'post_delete' pk=post.pk %}"><button class="btn btn-primary pull-left">삭제하기</button></a>
+    <a href="{% url 'post_modify' pk=post.pk %}"><button class="btn btn-primary pull-right">수정하기</button></a>
 </div>
 
 {% endblock %}
