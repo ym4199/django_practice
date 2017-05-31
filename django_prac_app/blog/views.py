@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post
@@ -20,12 +20,18 @@ def post_list(request):
 
 
 def post_detail(request,pk):
-    print('post_detail pk:',pk)
+    # print('post_detail pk:',pk)
     # post 라는 키값으로 pk또는 id 값이 매개변수로 주어진 pk변수와 같은 post객체를 전
+    try:
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        raise Http404("Question does not exist")
     context={
         'post': Post.objects.get(pk=pk),
     }
-    return render(request, 'blog/post_detail.html',context)
+    return render(request, 'blog/post_detail.html',{'post':post})
+
+
 
 
 def post_create(request):
